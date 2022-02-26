@@ -19,12 +19,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
-        android:background="@color/colorTextIcons"
+        android:background="@color/white"
         android:hint="Enter Location"
         android:minHeight="48dp"
         android:padding="5dp"
         android:textColorHint="#757575"
         app:layout_constraintBottom_toTopOf="@+id/findPetsButton"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:inputType="text"
+        android:autofillHints="" />
+
+    <Button
+        android:id="@+id/findPetsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:text="Find Restaurants"
+        android:textColor="#757575"
+        app:helperText ="Required"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent" />
 
