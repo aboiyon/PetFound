@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     String location = mLocationEditText.getText().toString();
                     Intent intent = new Intent(MainActivity.this, PetsActivity.class);
                     intent.putExtra("location", location);
+                    startActivity(intent);
                 }
             }
         });
