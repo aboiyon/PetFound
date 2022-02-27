@@ -7,10 +7,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PetsActivity extends Activity {
+public class PetsActivity extends AppCompatActivity {
     private String [] pets = new String[]{"Rex","Simba","Mutaa","T.z","Ceyos","Hesky","Bosco","South","Devs","Sparta","Java","Maven","Mambuzi","Rexxie","Ketepa"};
     private String [] breeds = new String[] {"Beagle", "Pomerarian", "Siberian Husky", "Scandinavian", "Bichon Frise", "Bichon King", "Maltese Dog", "Bulldog", "Labrador Retriever", "Mexican", "Basset Hound", "Cuban", "Pug", "Shiba Inu", "Bull Terrier" };
     private String [] sex = new String[] {"Male","Female","Male","Female","Female","Male","Female","Male","Female","Female","Male","Female","Male","Female","Female"};
@@ -31,16 +33,16 @@ public class PetsActivity extends Activity {
         mListView.setAdapter(adapter);
 
         mListView.setOnItemClickListener((adapterView, view, position, l) -> {
-            String restaurant = ((TextView)view).getText().toString();
-            Toast.makeText(PetsActivity.this, restaurant, Toast.LENGTH_LONG).show();
+            String pet = ((TextView)view).getText().toString();
+            Toast.makeText(PetsActivity.this, pet, Toast.LENGTH_LONG).show();
         });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        mLocationTextView.setText("Some popular pets" + location);
+        mLocationTextView.setText("Hybrid pets" + location);
 
     }
 }
 
 
-}
+

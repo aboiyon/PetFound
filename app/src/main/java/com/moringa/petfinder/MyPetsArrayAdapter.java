@@ -21,11 +21,11 @@ public class MyPetsArrayAdapter extends ArrayAdapter {
     }
     @Override
     public Object getItem(int position) {
-        String restaurant = mPets[position];
+        String pet = mPets[position];
         String breed = mBreeds[position];
         String sex = mSex[position];
         String location = mLocation[position];
-        return String.format("%s \nServes great: %s", restaurant, breed,sex,location);
+        return String.format("%s \nServes great: %s", pet, breed,sex,location);
     }
 
     @Override
