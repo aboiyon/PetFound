@@ -19,4 +19,19 @@ public class MyPetsArrayAdapter extends ArrayAdapter {
         this.mSex = mSex;
         this.mLocation = mLocation;
     }
+    @Override
+    public Object getItem(int position) {
+        String restaurant = mPets[position];
+        String breed = mBreeds[position];
+        String sex = mSex[position];
+        String location = mLocation[position];
+        return String.format("%s \nServes great: %s", restaurant, breed,sex,location);
+    }
+
+    @Override
+    public int getCount() {
+        return mPets.length;
+    }
 }
+
+
