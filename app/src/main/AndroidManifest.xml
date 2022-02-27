@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PetFinder">
-        <activity android:name=".PetsActivity">
+        <activity
+            android:name=".PetsActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.moringa.petfinder.MainActivity">

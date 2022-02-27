@@ -3,6 +3,7 @@ package com.moringa.petfinder;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,13 +34,14 @@ public class PetsActivity extends Activity {
 
         mListView.setOnItemClickListener((adapterView, view, position, l) -> {
             String pet = ((TextView)view).getText().toString();
+            Log.v("RestaurantsActivity", "In the onItemClickListener!");
             Toast.makeText(PetsActivity.this, pet, Toast.LENGTH_LONG).show();
         });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
         mLocationTextView.setText(String.format("Hybrid pets%s", location));
-
+        Log.d("RestaurantsActivity", "In the onCreate method!");
     }
 }
 

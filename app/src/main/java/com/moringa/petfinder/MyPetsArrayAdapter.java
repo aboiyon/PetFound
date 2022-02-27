@@ -26,7 +26,7 @@ public class MyPetsArrayAdapter extends ArrayAdapter {
         String breed = mBreeds[position];
         String sex = mSex[position];
         String location = mLocation[position];
-        return String.format("%s \nServes great: %s %s \nServes great: %s", pet, breed,sex,location);
+        return String.format("%s \nBreed: %s %s \nLocation: %s", pet, breed,sex,location);
     }
 
     @Override
