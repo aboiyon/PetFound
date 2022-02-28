@@ -24,7 +24,7 @@
         android:layout_marginTop="35dp"
         android:gravity="center_vertical"
         android:text="My Pets"
-        android:textColor="@color/purple_500"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
