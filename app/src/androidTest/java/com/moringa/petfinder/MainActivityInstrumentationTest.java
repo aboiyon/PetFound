@@ -36,7 +36,7 @@ public class MainActivityInstrumentationTest {
         }
         onView(withId(R.id.findPetsButton)).perform(click());
         onView(withId(R.id.locationTextView)).check(matches
-                (withText("Hybrid pets: " + location)));
+                (withText(String.format("Hybrid pets: %s", location))));
     }
 
 }
