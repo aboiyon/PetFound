@@ -40,7 +40,7 @@ public class PetsActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        mLocationTextView.setText(String.format("Hybrid pets" +"\n" +location));
+        mLocationTextView.setText(String.format(String.format("Popular pets:%s", location)));
         Log.d("PetsActivity", "In the onCreate method!");
     }
 }
