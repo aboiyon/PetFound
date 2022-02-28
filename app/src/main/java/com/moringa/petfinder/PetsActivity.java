@@ -34,14 +34,14 @@ public class PetsActivity extends AppCompatActivity {
 
         mListView.setOnItemClickListener((adapterView, view, position, l) -> {
             String pet = ((TextView)view).getText().toString();
-            Log.v("RestaurantsActivity", "In the onItemClickListener!");
+            Log.v("PetsActivity", "In the onItemClickListener!");
             Toast.makeText(PetsActivity.this, pet, Toast.LENGTH_LONG).show();
         });
 
         Intent intent = getIntent();
         String location = intent.getStringExtra("location");
-        mLocationTextView.setText(String.format("Hybrid pets%s", location));
-        Log.d("RestaurantsActivity", "In the onCreate method!");
+        mLocationTextView.setText(String.format("Hybrid pets" +"\n" +location));
+        Log.d("PetsActivity", "In the onCreate method!");
     }
 }
 
