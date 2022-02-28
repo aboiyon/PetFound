@@ -12,7 +12,10 @@
         android:id="@+id/imageView"
         android:src="@drawable/mypet"
         android:scaleType="centerCrop"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"/>
+        android:contentDescription="@string/dog"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     <TextView
         android:id="@+id/appNameTextView"
@@ -23,8 +26,9 @@
         android:layout_centerVertical="true"
         android:layout_marginTop="35dp"
         android:gravity="center_vertical"
-        android:text="My Pets"
+        android:text="@string/my_pets"
         android:textColor="@color/white"
+        android:fontFamily="@font/roboto"
         android:textSize="40sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -37,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:background="@color/white"
-        android:hint="Search pets"
+        android:hint="@string/search_pets"
         android:minHeight="48dp"
         android:padding="5dp"
         android:textColorHint="#757575"
@@ -52,7 +56,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/black"
-        android:text="Find Pets"
+        android:text="@string/find_pets"
         android:textColor="@color/white"
         app:helperText ="Required"
         app:layout_constraintBottom_toBottomOf="parent"
