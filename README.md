@@ -39,7 +39,7 @@ Open the folder with your favourite IDE.
 
 ## Running the tests
 
-Explain how to run the automated tests for this system
+-espresso test
 
 ### Break down into end to end tests
 

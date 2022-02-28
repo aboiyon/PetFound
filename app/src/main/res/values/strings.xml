@@ -4,4 +4,5 @@
     <string name="find_pets">Find Pets</string>
     <string name="search_pets">Search pets</string>
     <string name="dog">dog</string>
+    <string name="pet_search">Pet Search</string>
 </resources>
