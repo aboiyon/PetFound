@@ -39,14 +39,14 @@ public class PetsActivityInstrumentationTest {
 
     @Test
     public void listItemClickDisplaysToastWithCorrectPet(){
-        String restaurantName = "Bosco";
+        String petName = "Bosco";
         onData(anything())
                 .inAdapterView(withId(R.id.locationListView))
                 .atPosition(0)
                 .perform(click());
-        onView(withText(restaurantName))
+        onView(withText(petName))
                 .inRoot(withDecorView(not(activityDecorView)))
-                .check(matches(withText(restaurantName)));
+                .check(matches(withText(petName)));
     }
 
 }
