@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PetsActivity extends Activity {
+public class PetsActivity extends AppCompatActivity {
     private String [] pets = new String[]{"Rex","Simba","Mata","T.z","Ceyos","Hesky","Bosco","South","Devs","Sparta","Java","Maven","Mambuzi","Rexxie","Ketepa"};
     private String [] breeds = new String[] {"Beagle", "Pomerarian", "Siberian Husky", "Scandinavian", "Bichon Frise", "Bichon King", "Maltese Dog", "Bulldog", "Labrador Retriever", "Mexican", "Basset Hound", "Cuban", "Pug", "Shiba Inu", "Bull Terrier" };
     private String [] sex = new String[] {"Male","Female","Male","Female","Female","Male","Female","Male","Female","Female","Male","Female","Male","Female","Female"};
