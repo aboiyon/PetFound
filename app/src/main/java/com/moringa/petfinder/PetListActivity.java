@@ -19,7 +19,7 @@ public class PetListActivity extends AppCompatActivity {
     private String [] location = new String[] {"Kyiv","Kharkov","Siberia","Alps","Atlas","Pampas","Downs","Veld","Tigers","East","West","Mombasa","Nairobi","Kisumu","Kampala","Lebekwet"};
     @BindView(R.id.locationTextView)
     TextView mLocationTextView;
-    @BindView(R.id.locationListView)
+    @BindView(R.id.recyclerView)
     ListView mListView;
 
     @Override
