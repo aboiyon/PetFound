@@ -17,10 +17,8 @@ public class PetListActivity extends AppCompatActivity {
     private String [] breeds = new String[] {"Beagle", "Pomerarian", "Siberian Husky", "Scandinavian", "Bichon Frise", "Bichon King", "Maltese Dog", "Bulldog", "Labrador Retriever", "Mexican", "Basset Hound", "Cuban", "Pug", "Shiba Inu", "Bull Terrier" };
     private String [] sex = new String[] {"Male","Female","Male","Female","Female","Male","Female","Male","Female","Female","Male","Female","Male","Female","Female"};
     private String [] location = new String[] {"Kyiv","Kharkov","Siberia","Alps","Atlas","Pampas","Downs","Veld","Tigers","East","West","Mombasa","Nairobi","Kisumu","Kampala","Lebekwet"};
-    @BindView(R.id.locationTextView)
-    TextView mLocationTextView;
-    @BindView(R.id.recyclerView)
-    ListView mListView;
+    @BindView(R.id.locationTextView) TextView mLocationTextView;
+    @BindView(R.id.recyclerView) ListView mListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
