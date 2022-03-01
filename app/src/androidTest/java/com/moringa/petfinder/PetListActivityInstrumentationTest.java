@@ -40,7 +40,7 @@ public class PetListActivityInstrumentationTest {
     public void listItemClickDisplaysToastWithCorrectPet(){
         String petName = "Bosco";
         onData(anything())
-                .inAdapterView(withId(R.id.locationListView))
+                .inAdapterView(withId(R.id.recyclerView))
                 .atPosition(0)
                 .perform(click());
         onView(withText(petName))
