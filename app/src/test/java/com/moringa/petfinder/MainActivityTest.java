@@ -7,9 +7,7 @@ import android.widget.TextView;
 
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
-import org.robolectric.RobolectricTestRunner;
 import org.robolectric.shadows.ShadowActivity;
 
 public class MainActivityTest {
@@ -32,7 +30,7 @@ public class MainActivityTest {
     @Test
     public void secondActivityStarted(){
         activity.findViewById(R.id.findPetsButton).performClick();
-        Intent expectedIntent = new Intent(activity, PetsActivity.class);
+        Intent expectedIntent = new Intent(activity, PetListActivity.class);
         ShadowActivity shadowActivity = org.robolectric.Shadows.shadowOf(activity);
         Intent actualIntent = shadowActivity.getNextStartedActivity();
         assertTrue(actualIntent.filterEquals(expectedIntent));

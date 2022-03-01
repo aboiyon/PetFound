@@ -44,7 +44,7 @@ Open the folder with your favourite IDE.
 ### Break down into end to end tests
 
 -unit test for java
--instrumentation tests for ui
+-instrumentation tests for com.moringa.petfinder.ui
 ```
 ## Built With
 

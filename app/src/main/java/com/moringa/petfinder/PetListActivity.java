@@ -1,6 +1,5 @@
 package com.moringa.petfinder;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class PetsActivity extends AppCompatActivity {
+public class PetListActivity extends AppCompatActivity {
     private String [] pets = new String[]{"Rex","Simba","Mata","T.z","Ceyos","Hesky","Bosco","South","Devs","Sparta","Java","Maven","Mambuzi","Rexxie","Ketepa"};
     private String [] breeds = new String[] {"Beagle", "Pomerarian", "Siberian Husky", "Scandinavian", "Bichon Frise", "Bichon King", "Maltese Dog", "Bulldog", "Labrador Retriever", "Mexican", "Basset Hound", "Cuban", "Pug", "Shiba Inu", "Bull Terrier" };
     private String [] sex = new String[] {"Male","Female","Male","Female","Female","Male","Female","Male","Female","Female","Male","Female","Male","Female","Female"};
@@ -35,7 +34,7 @@ public class PetsActivity extends AppCompatActivity {
         mListView.setOnItemClickListener((adapterView, view, position, l) -> {
             String pet = ((TextView)view).getText().toString();
             Log.v("PetsActivity", "In the onItemClickListener!");
-            Toast.makeText(PetsActivity.this, pet, Toast.LENGTH_LONG).show();
+            Toast.makeText(PetListActivity.this, pet, Toast.LENGTH_LONG).show();
         });
 
         Intent intent = getIntent();

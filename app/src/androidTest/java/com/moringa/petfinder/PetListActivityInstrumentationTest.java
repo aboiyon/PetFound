@@ -9,7 +9,6 @@ import static androidx.test.espresso.matcher.ViewMatchers.withId;
 import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.anything;
 import static org.hamcrest.Matchers.not;
-import static org.junit.Assert.*;
 
 import android.view.View;
 
@@ -20,18 +19,18 @@ import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
 
-public class PetsActivityInstrumentationTest {
+public class PetListActivityInstrumentationTest {
     @Rule
-    public ActivityScenarioRule<PetsActivity> activityTestRule =
-            new ActivityScenarioRule<>(PetsActivity.class);
+    public ActivityScenarioRule<PetListActivity> activityTestRule =
+            new ActivityScenarioRule<>(PetListActivity.class);
 
     private View activityDecorView;
 
     @Before
     public void setUp() {
-        activityTestRule.getScenario().onActivity(new ActivityScenario.ActivityAction<PetsActivity>() {
+        activityTestRule.getScenario().onActivity(new ActivityScenario.ActivityAction<PetListActivity>() {
             @Override
-            public void perform(PetsActivity activity) {
+            public void perform(PetListActivity activity) {
                 activityDecorView = activity.getWindow().getDecorView();
             }
         });
