@@ -7,3 +7,9 @@ plugins {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+dependencies {
+
+// Parceler
+    implementation 'org.parceler:parceler-api:1.1.12'
+    annotationProcessor 'org.parceler:parceler:1.1.12'
+}
