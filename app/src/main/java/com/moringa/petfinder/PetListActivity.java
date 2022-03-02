@@ -28,7 +28,7 @@ public class PetListActivity extends AppCompatActivity {
 
     private PetListAdapter mAdapter;
 
-    public List<Animal> restaurants;
+    public List<Animal> genders;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,22 +37,19 @@ public class PetListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String location = intent.getStringExtra("gender");
+        String gender = intent.getStringExtra("gender");
 
 //        Api client = Client.getClient();
         interface1 client = PetClient.getClient();
         Call<SearchResponse> call = client.getPets(gender);
-
-        Call<SearchResponse> call = client.getPets(location, "pets");
-
         call.enqueue(new Callback<SearchResponse>() {
             @Override
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    pets = response.body().getBusinesses();
-                    mAdapter = new PetListAdapter(PetListActivity.this, pets);
+                    genders = response.body().getAnimals();
+                    mAdapter = new PetListAdapter(PetListActivity.this, genders);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager =
                             new LinearLayoutManager(PetListActivity.this);
@@ -66,7 +63,8 @@ public class PetListActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<YelpBusinessesSearchResponse> call, Throwable t) {
+            public void onFailure(Call<SearchResponse> call, Throwable t) {
+                Log.e("Error Message", "onFailure: ",t );
                 hideProgressBar();
                 showFailureMessage();
             }
@@ -84,7 +82,7 @@ public class PetListActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-    private void showRestaurants() {
+    private void showPets() {
         mRecyclerView.setVisibility(View.VISIBLE);
     }
 
