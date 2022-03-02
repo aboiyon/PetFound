@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.moringa.petfinder.PetDetailActivity;
 import com.moringa.petfinder.R;
 
 import butterknife.BindView;
@@ -70,7 +71,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
                 int itemPosition = getLayoutPosition();
                 Intent intent = new Intent(mContext, PetDetailActivity.class);
                 intent.putExtra("position", itemPosition);
-                intent.putExtra("restaurants", Parcels.wrap(mNameTextView));
+                intent.putExtra("pets", Parcels.wrap(mNameTextView));
                 mContext.startActivity(intent);
             }
         }
