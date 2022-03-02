@@ -27,7 +27,7 @@ public class PetListActivity extends AppCompatActivity {
 
     private PetListAdapter mAdapter;
 
-    public List<Business> restaurants;
+    public List<Animal> restaurants;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,15 +36,17 @@ public class PetListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
+        String location = intent.getStringExtra("gender");
 
-        Api client = Client.getClient();
+//        Api client = Client.getClient();
+        interface1 client = PetClient.getClient();
+        Call<SearchResponse> call = client.getPets(gender);
 
-        Call<YelpBusinessesSearchResponse> call = client.getPets(location, "pets");
+        Call<SearchResponse> call = client.getPets(location, "pets");
 
-        call.enqueue(new Callback<YelpBusinessesSearchResponse>() {
+        call.enqueue(new Callback<SearchResponse>() {
             @Override
-            public void onResponse(Call<YelpBusinessesSearchResponse> call, Response<YelpBusinessesSearchResponse> response) {
+            public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
