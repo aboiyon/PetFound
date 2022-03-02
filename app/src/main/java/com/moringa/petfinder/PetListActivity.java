@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringa.petfinder.adapters.PetListAdapter;
+import com.moringa.petfinder.network.PetClient;
 import com.moringa.petfinder.network.interface1;
 
 import butterknife.BindView;
