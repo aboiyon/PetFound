@@ -1,6 +1,8 @@
 package com.moringa.petfinder.adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +24,7 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
         mContext = context;
         mPets = pets;
     }
-    public class PetViewHolder extends RecyclerView.ViewHolder {
+    public class PetViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.petImageView) ImageView mPetImageView;
         @BindView(R.id.petNameTextView) TextView mNameTextView;
         @BindView(R.id.categoryTextView) TextView mCategoryTextView;
@@ -53,10 +55,24 @@ public class PetListAdapter extends RecyclerView.Adapter<PetListAdapter.PetViewH
             return mPets.size();
         }
 
-        public void bindRestaurant(Animal pet) {
-            mNameTextView.setText(pet.getName());
-            mCategoryTextView.setText(pet.getCategories().get(0).getTitle());
-            mRatingTextView.setText("Rating: " + pet.getRating() + "/5");
+        public void bindPet(Animal gender) {
+            mNameTextView.setText(gender.getName());
+            mCategoryTextView.setText(gender.getCategories().get(0).getTitle());
+            mRatingTextView.setText("Rating: " + gender.getDescription());
+
+            for(int i=0;i<gender.getPhotos().size();i++){
+                Log.d("Photo","photo sizes"+gender.getPhotos().get(i));
+                String photo = gender.getPhotos().get(i).getFull();
+                Picasso.get().load(photo).into(mPetImageView);
+            }
+            public void onClick(View v) {
+
+                int itemPosition = getLayoutPosition();
+                Intent intent = new Intent(mContext, PetDetailActivity.class);
+                intent.putExtra("position", itemPosition);
+                intent.putExtra("restaurants", Parcels.wrap(mNameTextView));
+                mContext.startActivity(intent);
+            }
         }
     }
 }
