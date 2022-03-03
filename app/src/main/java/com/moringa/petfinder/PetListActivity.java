@@ -28,11 +28,12 @@ import retrofit2.Response;
 public class PetListActivity extends AppCompatActivity {
     private static final String TAG = PetListActivity.class.getSimpleName();
 
+
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
-    private PetListActivity mAdapter;
+    private PetListAdapter mAdapter;
 
     public List<Animal> genders;
 
@@ -55,7 +56,7 @@ public class PetListActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     genders = response.body().getAnimals();
-                    mAdapter = new PetListActivity(.this, genders);
+                    mAdapter = new PetListAdapter(PetListActivity.this, genders);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager =
                             new LinearLayoutManager(PetListActivity.this);
