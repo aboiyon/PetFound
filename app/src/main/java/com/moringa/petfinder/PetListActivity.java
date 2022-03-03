@@ -4,18 +4,19 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringa.petfinder.adapters.PetListAdapter;
+import com.moringa.petfinder.models.Animal;
 import com.moringa.petfinder.network.PetClient;
 import com.moringa.petfinder.network.interface1;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

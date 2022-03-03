@@ -4,11 +4,16 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.moringa.petfinder.R;
+
+import butterknife.BindView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,15 +21,18 @@ import com.moringa.petfinder.R;
  * create an instance of this fragment.
  */
 public class PetDetailFragment extends Fragment {
+    @BindView(R.id.Image1)
+    ImageView mImageLabel;
+    @BindView(R.id.NameTextView)
+    TextView mNameLabel;
+    @BindView(R.id.TextView) TextView mCategoriesLabel;
+    @BindView(R.id.ratingTextView) TextView mRatingLabel;
+    @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
+    @BindView(R.id.phoneTextView) TextView mPhoneLabel;
+    @BindView(R.id.addressTextView) TextView mAddressLabel;
+    @BindView(R.id.savePetButton) TextView mSaveRestaurantButton;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Animal mPet;
 
     public PetDetailFragment() {
         // Required empty public constructor
@@ -42,8 +50,8 @@ public class PetDetailFragment extends Fragment {
     public static PetDetailFragment newInstance(String param1, String param2) {
         PetDetailFragment fragment = new PetDetailFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putParcelable("animal", Parcels.wrap(animal));
+        fragment.setArguments(args);
         fragment.setArguments(args);
         return fragment;
     }
@@ -51,9 +59,8 @@ public class PetDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        assert getArguments()! = null;
+        mPet = Parcel
         }
     }
 

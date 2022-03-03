@@ -1,87 +1,85 @@
-# Pet Found
-
-An android application that tracks pets. It uses the pet finder api.
-
-## Getting Started
-Clone this repository to your local repository.
- Open it with your favourite IDE (ANDROID STUDIO).
- Build it and run it using build in AVD.
-### Prerequisites
-
-What things you need to install the software and how to install them
-You need the following software's installed:
-- java
-- JDK - Java Development Kit
-- Gradle
-- Android virtual device
-- An IDE - ANDROID STUDIO
-
-
-To confirm run the following command on linux
-```
-$ java --version
-$ gradle --version
-```
----
-
-```
-Give examples
-```
-
-### Installing
-
-* Clone this project using ``` git clone https://github.com/lanarokip/score.git```
-
-Open the folder with your favourite IDE.
-* Navigate into the ``` src/main/java/App.java ``` and click run in androidStudio .
-* click on the run button and navigate to the AVD .
----
-
-## Running the tests
-
--espresso test
-
-### Break down into end to end tests
-
--unit test for java
--instrumentation tests for com.moringa.petfinder.ui
-```
-## Built With
-
-* Gradle
-* Maven
-* Java
-
-## Versioning
-version 1.0
-
-## Author
-
-* **Kiprotich Michael** **
-
-## Contact Information
-
-If you have any question or contributions, please email me at [michael.kiprotich@student.moringaschool.com]
-
-## License
-
-  MIT License:_
-  Copyright (c) 2022 **Michael Kiprotich**
-  Permission is hereby granted, free of charge, to any person obtaining a copy
-  of this software and associated documentation files (the "Software"), to deal
-  in the Software without restriction, including without limitation the rights
-  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-  copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-
+{
+"animals": [
+{
+"id": 54828876,
+"organization_id": "GA170",
+"url": "https://www.petfinder.com/dog/churro-11439-54828876/ga/cumming/furkids-animal-rescue-and-shelters-ga170/?referrer_id=e9565857-5e35-4aac-8a15-083c0dc950bd",
+"type": "Dog",
+"species": "Dog",
+"breeds": {
+"primary": "Poodle",
+"secondary": "Golden Retriever",
+"mixed": true,
+"unknown": false
+},
+"colors": {
+"primary": null,
+"secondary": null,
+"tertiary": null
+},
+"age": "Adult",
+"gender": "Male",
+"size": "Large",
+"coat": null,
+"attributes": {
+"spayed_neutered": true,
+"house_trained": false,
+"declawed": null,
+"special_needs": false,
+"shots_current": false
+},
+"environment": {
+"children": null,
+"dogs": null,
+"cats": null
+},
+"tags": [],
+"name": "Churro 11439",
+"description": "Churro and Macho came to Furkids when their previous owner could no longer take care of them. Churro and Macho...",
+"organization_animal_id": "FKDS-A-26073",
+"photos": [],
+"primary_photo_cropped": null,
+"videos": [],
+"status": "adoptable",
+"status_changed_at": "2022-03-03T02:55:20+0000",
+"published_at": "2022-03-03T02:55:20+0000",
+"distance": null,
+"contact": {
+"email": "adopt@furkids.org",
+"phone": "(770) 613-0880",
+"address": {
+"address1": null,
+"address2": null,
+"city": "Cumming",
+"state": "GA",
+"postcode": "30040",
+"country": "US"
+}
+},
+"\_links": {
+"self": {
+"href": "/v2/animals/54828876"
+},
+"type": {
+"href": "/v2/types/dog"
+},
+"organization": {
+"href": "/v2/organizations/ga170"
+}
+}
+},
+"pagination": {
+"count_per_page": 20,
+"total_count": 105546,
+"current_page": 2,
+"total_pages": 5278,
+"\_links": {
+"previous": {
+"href": "/v2/animals?page=1&type=dog"
+},
+"next": {
+"href": "/v2/animals?page=3&type=dog"
+}
+}
+}
+}
