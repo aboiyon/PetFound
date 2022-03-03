@@ -13,7 +13,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringa.petfinder.PetDetailActivity;
 import com.moringa.petfinder.R;
+import com.moringa.petfinder.models.Animal;
 import com.squareup.picasso.Picasso;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

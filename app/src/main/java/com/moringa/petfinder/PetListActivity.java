@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.moringa.petfinder.adapters.PetListAdapter;
 import com.moringa.petfinder.models.Animal;
+import com.moringa.petfinder.models.SearchResponse;
 import com.moringa.petfinder.network.PetClient;
 import com.moringa.petfinder.network.interface1;
 
@@ -20,6 +21,9 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PetListActivity extends AppCompatActivity {
     private static final String TAG = PetListActivity.class.getSimpleName();
