@@ -23,17 +23,17 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class petListAdapter  extends RecyclerView.Adapter<petListAdapter.petViewHolder>{
+public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petViewHolder>{
     private List<Animal> mPets;
     private Context mContext;
 
-    public petListAdapter(Context context, List<Animal> pets) {
+    public PetListAdapter(Context context, List<Animal> pets) {
         mContext = context;
         mPets = pets;
     }
 
     @Override
-    public petListAdapter.petViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public PetListAdapter.petViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pet_list_item,parent,false);
         petViewHolder viewHolder = new petViewHolder(view);
 
@@ -41,7 +41,7 @@ public class petListAdapter  extends RecyclerView.Adapter<petListAdapter.petView
     }
 
     @Override
-    public void onBindViewHolder( petListAdapter.petViewHolder holder, int position) {
+    public void onBindViewHolder( PetListAdapter.petViewHolder holder, int position) {
         holder.bindRestaurant(mPets.get(position));
     }
 

@@ -32,7 +32,7 @@ public class PetListActivity extends AppCompatActivity {
     @BindView(R.id.errorTextView) TextView mErrorTextView;
     @BindView(R.id.progressBar) ProgressBar mProgressBar;
 
-    private PetListAdapter mAdapter;
+    private PetListActivity mAdapter;
 
     public List<Animal> genders;
 
