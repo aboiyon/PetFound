@@ -1,19 +1,22 @@
 package com.moringa.petfinder.ui;
 
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
-import android.os.Parcel;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.fragment.app.Fragment;
+
 import com.moringa.petfinder.R;
+import com.moringa.petfinder.models.Animal;
+import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import butterknife.BindView;
+import butterknife.ButterKnife;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,11 +24,11 @@ import butterknife.BindView;
  * create an instance of this fragment.
  */
 public class PetDetailFragment extends Fragment {
-    @BindView(R.id.Image1)
+    @BindView(R.id.petImageView)
     ImageView mImageLabel;
-    @BindView(R.id.NameTextView)
+    @BindView(R.id.petNameTextView)
     TextView mNameLabel;
-    @BindView(R.id.TextView) TextView mCategoriesLabel;
+    @BindView(R.id.locationTextView) TextView mCategoriesLabel;
     @BindView(R.id.ratingTextView) TextView mRatingLabel;
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
@@ -38,16 +41,7 @@ public class PetDetailFragment extends Fragment {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment BlankFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static PetDetailFragment newInstance(String param1, String param2) {
+    public static PetDetailFragment newInstance(Animal animal) {
         PetDetailFragment fragment = new PetDetailFragment();
         Bundle args = new Bundle();
         args.putParcelable("animal", Parcels.wrap(animal));
@@ -59,15 +53,23 @@ public class PetDetailFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        assert getArguments()! = null;
-        mPet = Parcel
-        }
+        assert getArguments()!= null;
+        mPet = Parcels.unwrap(getArguments().getParcelable("animal"));
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_pet_detail, container, false);
+        View view = inflater.inflate(R.layout.fragment_pet_detail, container, false);
+        ButterKnife.bind(this, view);
+        Picasso.get().load(mPet.getUrl()).into(mImageLabel);
+        mNameLabel.setText(mPet.getName());
+        mRatingLabel.setText(mPet.getCoat().toString());
+        mPhoneLabel.setText(mPet.getContact().toString());
+        mAddressLabel.setText(mPet.getAge());
+
+        return view;
+//        return inflater.inflate(R.layout.fragment_pet_detail, container, false);
     }
 }

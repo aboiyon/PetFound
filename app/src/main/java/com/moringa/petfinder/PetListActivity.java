@@ -55,7 +55,7 @@ public class PetListActivity extends AppCompatActivity {
 
                 if (response.isSuccessful()) {
                     genders = response.body().getAnimals();
-                    mAdapter = new PetListAdapter(PetListActivity.this, genders);
+                    mAdapter = new PetListActivity(.this, genders);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager =
                             new LinearLayoutManager(PetListActivity.this);
@@ -101,3 +101,4 @@ public class PetListActivity extends AppCompatActivity {
 
 //API-KEY:bKYfebFDtZTVNWAbv7BMsmQYIgRAlYW717TqhFQWW4ZgEW3gQe
 //SECRET-KEY: YRKwMSMd55uY25rxh4xOSssyZO1mu7uQNEoCR5rw
+//TOKEN:eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiJiS1lmZWJGRHRaVFZOV0FidjdCTXNtUVlJZ1JBbFlXNzE3VHFoRlFXVzRaZ0VXM2dRZSIsImp0aSI6Ijc3MmY2ODFmMDZlMWJhNzMzOGU1NGQ5ZDk3YTY0ZTkyZGVlODE3M2RlY2RkZTFkMGJjNzdjZjkxYWJkY2EyYWQ0OGRiMzgxOWQ1N2EzOWQ0IiwiaWF0IjoxNjQ2Mjc2NDM4LCJuYmYiOjE2NDYyNzY0MzgsImV4cCI6MTY0NjI4MDAzOCwic3ViIjoiIiwic2NvcGVzIjpbXX0.CncnaWwrFo4WYHke81VFuBHywLKWTDHo2L1R4yx-22eMRJajK9cjHALoEWDYYGLeHZFqK0M1l06LFenqX4cz61U6LYRP0LOC0lvOM4vajC4kMIEIdti5QUIx8LyHGxqbPlYsSwVwFFt62795Gdgseqhh8L_6e3j0jP7aB1h_TntfMBv-u9pWqFpCiqfsF0b4zialNFckNThGRo9b4dCI2deeLVj5-PhRnPUjeT950Npp8eM7-eh4oM5kGVeBLyYsxWoH3BWyabqYQ6TeoaOLF-b3YJELpNFdo6Zy6OwOW5EKN2KSiNWAnyftGQjgft3dk_Xcg22YtmzotTr7bQGwIQ
