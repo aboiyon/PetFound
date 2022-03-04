@@ -7,7 +7,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import com.moringa.petfinder.PetListActivity;
 import com.moringa.petfinder.R;
 
 import butterknife.BindView;
@@ -18,7 +17,7 @@ public class MainActivity {
     @BindView(R.id.locationEditText) EditText mLocationEditText;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
 
-        mFindPetsButton.setOnclickListener(this);
+        mFindPetsButton.setOnClickListener(this);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

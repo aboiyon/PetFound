@@ -27,7 +27,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class PetListActivity extends AppCompatActivity {
-    private static final String TAG = com.moringa.petfinder.PetListActivity.class.getSimpleName();
+    private static final String TAG = PetListActivity.class.getSimpleName();
 
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
@@ -47,11 +47,10 @@ public class PetListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String gender = intent.getStringExtra("gender");
+        String location = intent.getStringExtra("location");
 
-//        Api client = Client.getClient();
         interface1 client = PetClient.getClient();
-        Call<SearchResponse> call = client.getPets(gender);
+        Call<SearchResponse> call = client.getPets(location);
         call.enqueue(new Callback<SearchResponse>() {
             @Override
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
