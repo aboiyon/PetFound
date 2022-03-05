@@ -9,6 +9,27 @@
         android:label="PetFinder"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PetFinder"></application>
+        android:theme="@style/Theme.PetFinder">
+        <activity android:name=".ui.PetDetailActivity"></activity>
+        <activity
+            android:name=".ui.MainActivity"
+            android:theme="@style/NoActionBarTheme"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-</manifest>
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".ui.PetListActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.moringa.petfinder.ui.MainActivity"></meta-data>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/com_google_android_gms_fonts_certs_prod" />
+    </application>
+    </manifest>
+
