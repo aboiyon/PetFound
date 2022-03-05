@@ -1,5 +1,7 @@
 package com.moringa.petfinder.ui;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,17 +25,15 @@ import butterknife.ButterKnife;
  * Use the {@link PetDetailFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class PetDetailFragment extends Fragment {
-    @BindView(R.id.petImageView)
-    ImageView mImageLabel;
-    @BindView(R.id.petNameTextView)
-    TextView mNameLabel;
+public class PetDetailFragment extends Fragment implements View.OnClickListener{
+    @BindView(R.id.petImageView) ImageView mImageView;
+    @BindView(R.id.petNameTextView) TextView mNameLabel;
     @BindView(R.id.locationTextView) TextView mCategoriesLabel;
     @BindView(R.id.ratingTextView) TextView mRatingLabel;
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
     @BindView(R.id.addressTextView) TextView mAddressLabel;
-    @BindView(R.id.savePetButton) TextView mSaveRestaurantButton;
+    @BindView(R.id.savePetButton) TextView mSavePetsButton;
 
     private Animal mPet;
 
@@ -63,7 +63,7 @@ public class PetDetailFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pet_detail, container, false);
         ButterKnife.bind(this, view);
-        Picasso.get().load(mPet.getUrl()).into(mImageLabel);
+        Picasso.get().load(mPet.getUrl()).into(mImageView);
         mNameLabel.setText(mPet.getName());
         mRatingLabel.setText(mPet.getCoat().toString());
         mPhoneLabel.setText(mPet.getContact().toString());
@@ -71,5 +71,21 @@ public class PetDetailFragment extends Fragment {
 
         return view;
 //        return inflater.inflate(R.layout.fragment_pet_detail, container, false);
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view == mWebsiteLabel){
+            Intent webIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(mPet.getUrl()));
+            startActivity(webIntent);
+        }
+        if (view == mPhoneLabel){
+            Intent phoneIntent = new Intent(Intent.ACTION_DIAL, Uri.parse("tel"+ mPet.getContact()));
+            startActivity(phoneIntent);
+        }
+        if (view == mAddressLabel){
+            Intent addressIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + mPet.getAge()));
+            startActivity(addressIntent);
+        }
     }
 }
