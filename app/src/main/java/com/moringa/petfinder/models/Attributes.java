@@ -4,11 +4,9 @@ package com.moringa.petfinder.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import org.parceler.Parcel;
-
 import javax.annotation.Generated;
 
-@Parcel
+//@Parcel
 @Generated("jsonschema2pojo")
 public class Attributes {
 
