@@ -89,7 +89,7 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, PetDetailActivity.class);
             intent.putExtra("position", itemPosition);
-            intent.putExtra("restaurants", Parcels.wrap(mNameTextView));
+            intent.putExtra("pets", Parcels.wrap(mNameTextView));
             mContext.startActivity(intent);
         }
     }
