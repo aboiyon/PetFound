@@ -45,10 +45,11 @@ public class PetListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         Intent intent = getIntent();
-        String location = intent.getStringExtra("location");
+        String type = intent.getStringExtra("type");
+        String breed = intent.getStringExtra("breed");
 
         interface1 client = PetClient.getClient();
-        Call<SearchResponse> call = client.getPets(location);
+        Call<SearchResponse> call = client.getPets(type, breed);
         call.enqueue(new Callback<SearchResponse>() {
             @Override
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
