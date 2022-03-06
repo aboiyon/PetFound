@@ -46,17 +46,17 @@ public class PetListActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         String type = intent.getStringExtra("type");
-        String breed = intent.getStringExtra("breed");
+//        String breed = intent.getStringExtra("breed");
 
         interface1 client = PetClient.getClient();
-        Call<SearchResponse> call = client.getPets(type, breed);
+        Call<SearchResponse> call = client.getPets(type, "pets");
         call.enqueue(new Callback<SearchResponse>() {
             @Override
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
                 hideProgressBar();
 
                 if (response.isSuccessful()) {
-                    pets = response.body().getAnimals();
+                    List<Animal> pets = response.body().getAnimals();
                     mAdapter = new PetListAdapter(PetListActivity.this, pets);
                     mRecyclerView.setAdapter(mAdapter);
                     RecyclerView.LayoutManager layoutManager =

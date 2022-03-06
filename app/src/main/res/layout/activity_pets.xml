@@ -10,6 +10,17 @@
     android:paddingTop="16dp"
     tools:context=".ui.PetListActivity">
 
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/locationTextView"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="16dp"
+        android:visibility="gone"
+        tools:ignore="MissingConstraints" />
+
+
     <TextView
         android:id="@+id/locationTextView"
         android:layout_width="wrap_content"
