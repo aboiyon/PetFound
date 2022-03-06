@@ -71,7 +71,7 @@ public class PetListActivity extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<SearchResponse> call, Throwable t) {
-                Log.e("Error Message", "onFailure: ",t );
+                Log.e(TAG, "onFailure: ",t );
                 hideProgressBar();
                 showFailureMessage();
             }
