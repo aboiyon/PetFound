@@ -44,7 +44,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
     public static PetDetailFragment newInstance(Animal animal) {
         PetDetailFragment fragment = new PetDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("animal", Parcels.wrap(animal));
+        args.putParcelable("pet", Parcels.wrap(animal));
         fragment.setArguments(args);
         fragment.setArguments(args);
         return fragment;
@@ -54,7 +54,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assert getArguments()!= null;
-        mPet = Parcels.unwrap(getArguments().getParcelable("animal"));
+        mPet = Parcels.unwrap(getArguments().getParcelable("pet"));
     }
 
     @Override
