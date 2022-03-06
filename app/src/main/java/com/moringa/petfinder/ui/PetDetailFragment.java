@@ -69,6 +69,10 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
         mPhoneLabel.setText(mPet.getContact().toString());
         mAddressLabel.setText(mPet.getAge());
 
+        mWebsiteLabel.setOnClickListener(this);
+        mPhoneLabel.setOnClickListener(this);
+        mAddressLabel.setOnClickListener(this);
+
         return view;
 //        return inflater.inflate(R.layout.fragment_pet_detail, container, false);
     }
