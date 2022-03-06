@@ -1,7 +1,7 @@
 package com.moringa.petfinder.network;
 
-import static com.moringa.petfinder.BuildConfig.API_KEY;
 import static com.moringa.petfinder.Constants.BASE_URL;
+import static com.moringa.petfinder.Constants.access_token;
 
 import java.io.IOException;
 
@@ -22,7 +22,7 @@ public class PetClient {
                         @Override
                         public Response intercept(Chain chain) throws IOException {
                             Request newRequest = chain.request().newBuilder()
-                                    .addHeader("Authorization", API_KEY)
+                                    .addHeader("Authorization", access_token)
                                     .build();
                             return chain.proceed(newRequest);
                         }

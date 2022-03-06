@@ -9,24 +9,24 @@ public class MyPetsArrayAdapter extends ArrayAdapter {
     private Context mContext;
     private final String[] mPets;
     private final String[] mBreeds;
-    private final String[] mSex;
-    private final String[] mLocation;
+//    private final String[] mSex;
+//    private final String[] mLocation;
 
-    public MyPetsArrayAdapter(@NonNull Context context, int resource, String[] mPets, String[] mBreeds, String[]mSex, String[]mLocation) {
+    public MyPetsArrayAdapter(@NonNull Context context, int resource, String[] mPets, String[] mBreeds) {
         super(context, resource);
-        this.mContext = mContext;
+       // this.mContext = mContext;
         this.mPets = mPets;
         this.mBreeds = mBreeds;
-        this.mSex = mSex;
-        this.mLocation = mLocation;
+//        this.mSex = mSex;
+//        this.mLocation = mLocation;
     }
     @Override
     public Object getItem(int position) {
         String pet = mPets[position];
         String breed = mBreeds[position];
-        String sex = mSex[position];
-        String location = mLocation[position];
-        return String.format("%s \nBreed: %s %s \nLocation: %s", pet, breed,sex,location);
+//        String sex = mSex[position];
+//        String location = mLocation[position];
+        return String.format("%s \nBreed: %s %s \nLocation: %s", pet, breed);
     }
 
     @Override
