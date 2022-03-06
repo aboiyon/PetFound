@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 public class PetDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.petImageView) ImageView mImageView;
     @BindView(R.id.petNameTextView) TextView mNameLabel;
-    @BindView(R.id.locationTextView) TextView mCategoriesLabel;
+    @BindView(R.id.locationTextView) TextView mLocationTextView;
     @BindView(R.id.ratingTextView) TextView mRatingLabel;
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
