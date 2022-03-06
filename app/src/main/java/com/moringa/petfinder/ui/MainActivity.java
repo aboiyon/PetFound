@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +16,8 @@ import butterknife.ButterKnife;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.findPetsButton) Button mFindPetsButton;
     @BindView(R.id.locationEditText) EditText mLocationEditText;
-    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+    @BindView(R.id.savedPetButton) Button savedPetButton;
+//    @BindView(R.id.appNameTextView) TextView mAppNameTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
