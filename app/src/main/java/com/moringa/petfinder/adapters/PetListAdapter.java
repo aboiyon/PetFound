@@ -35,6 +35,7 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
     @Override
     public PetListAdapter.petViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pet_list_item,parent,false);
+
         petViewHolder viewHolder = new petViewHolder(view);
 
         return viewHolder;
@@ -42,7 +43,7 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
 
     @Override
     public void onBindViewHolder( PetListAdapter.petViewHolder holder, int position) {
-        holder.bindRestaurant(mPets.get(position));
+        holder.bindPet(mPets.get(position));
     }
 
     @Override
@@ -51,18 +52,13 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
     }
 
     public class petViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-        @BindView(R.id.petImageView)
-        ImageView mPetImageView;
-        @BindView(R.id.petNameTextView)
-        TextView mNameTextView;
-        @BindView(R.id.categoryTextView) TextView mCategoryTextView;
-        @BindView(R.id.ratingTextView) TextView mRatingTextView;
+        @BindView(R.id.petImageView) ImageView mPetImageView;
+        @BindView(R.id.petNameTextView) TextView mNameTextView;
+        @BindView(R.id.genderTextView) TextView mGenderTextView;
+        @BindView(R.id.descriptionTextView) TextView mDescriptionTextView;
 
         private Context mContext;
 
-//        public void bindPets(Animal animals){
-//
-//        }
 
         public petViewHolder(View itemView) {
             super(itemView);
@@ -71,25 +67,25 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
             itemView.setOnClickListener(this);
         }
 
-        public void bindRestaurant(Animal gender) {
-            mNameTextView.setText(gender.getName());
-            mCategoryTextView.setText(gender.getGender());
-            mRatingTextView.setText("description " + gender.getDescription());
+        public void bindPet(Animal pet) {
+            mNameTextView.setText(pet.getName());
+            mGenderTextView.setText(pet.getGender());
+            mDescriptionTextView.setText("description " + pet.getDescription());
 
-            for(int i=0;i<gender.getPhotos().size();i++){
-                Log.d("Photo","photo sizes"+gender.getPhotos().get(i));
-                String photo = gender.getPhotos().get(i).toString();
+            for(int i=0;i<pet.getPhotos().size();i++){
+                Log.d("Photo","photo sizes"+pet.getPhotos().get(i));
+                String photo = pet.getPhotos().get(i).toString();
                 Picasso.get().load(photo).into(mPetImageView);
             }
         }
 
         @Override
-        public void onClick(View v) {
+        public void onClick(View view) {
 
             int itemPosition = getLayoutPosition();
             Intent intent = new Intent(mContext, PetDetailActivity.class);
             intent.putExtra("position", itemPosition);
-            intent.putExtra("pets", Parcels.wrap(mNameTextView));
+            intent.putExtra("pets", Parcels.wrap(mPets));
             mContext.startActivity(intent);
         }
     }
