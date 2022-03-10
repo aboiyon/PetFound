@@ -46,7 +46,7 @@ public class PetListActivity extends AppCompatActivity {
         String type = intent.getStringExtra("type");
 
         PetApi client = PetClient.getClient();
-        Call<SearchResponse> call = client.getPets(type);
+        Call<SearchResponse> call = client.getPets();
         call.enqueue(new Callback<SearchResponse>() {
             @Override
             public void onResponse(Call<SearchResponse> call, Response<SearchResponse> response) {
