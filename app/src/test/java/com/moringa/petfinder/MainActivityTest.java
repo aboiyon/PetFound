@@ -1,9 +1,12 @@
 package com.moringa.petfinder;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import android.content.Intent;
 import android.widget.TextView;
+
+import com.moringa.petfinder.ui.MainActivity;
+import com.moringa.petfinder.ui.PetListActivity;
 
 import org.junit.Before;
 import org.junit.Test;

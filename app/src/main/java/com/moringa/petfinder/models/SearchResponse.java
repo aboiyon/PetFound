@@ -8,7 +8,6 @@ import java.util.List;
 
 import javax.annotation.Generated;
 
-//@Parcel
 @Generated("jsonschema2pojo")
 public class SearchResponse {
 

@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
 
-//@Parcel
 @Generated("jsonschema2pojo")
 public class Contact {
 

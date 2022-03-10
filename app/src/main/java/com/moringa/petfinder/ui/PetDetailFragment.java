@@ -6,34 +6,29 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import com.moringa.petfinder.R;
 import com.moringa.petfinder.models.Animal;
-import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link PetDetailFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class PetDetailFragment extends Fragment implements View.OnClickListener{
-    @BindView(R.id.petImageView) ImageView mImageView;
     @BindView(R.id.petNameTextView) TextView mNameLabel;
-    @BindView(R.id.locationTextView) TextView mLocationTextView;
-    @BindView(R.id.ratingTextView) TextView mRatingLabel;
+    @BindView(R.id.genderTextView) TextView mGenderLabel;
+    @BindView(R.id.ageTextView) TextView mAgeLabel;
+
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
     @BindView(R.id.addressTextView) TextView mAddressLabel;
-    @BindView(R.id.savePetButton) TextView mSavePetsButton;
+
+    @BindView(R.id.savePetButton) TextView mSavePetButton;
 
     private Animal mPet;
 
@@ -41,17 +36,16 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
         // Required empty public constructor
     }
 
-    public static PetDetailFragment newInstance(Animal animal) {
+    public static PetDetailFragment newInstance(Animal pet) {
         PetDetailFragment fragment = new PetDetailFragment();
         Bundle args = new Bundle();
-        args.putParcelable("pet", Parcels.wrap(animal));
-        fragment.setArguments(args);
+        args.putParcelable("pet", Parcels.wrap(pet));
         fragment.setArguments(args);
         return fragment;
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    public void onCreate(@NonNull Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assert getArguments()!= null;
         mPet = Parcels.unwrap(getArguments().getParcelable("pet"));
@@ -63,18 +57,20 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_pet_detail, container, false);
         ButterKnife.bind(this, view);
-        Picasso.get().load(mPet.getUrl()).into(mImageView);
+
         mNameLabel.setText(mPet.getName());
-        mRatingLabel.setText(mPet.getCoat().toString());
+        mGenderLabel.setText(mPet.getGender());
+        mAgeLabel.setText(mPet.getAge());
+
+        mWebsiteLabel.setText(mPet.getUrl());
         mPhoneLabel.setText(mPet.getContact().toString());
-        mAddressLabel.setText(mPet.getAge());
+        mAddressLabel.setText(mPet.getOrganizationId());
 
         mWebsiteLabel.setOnClickListener(this);
         mPhoneLabel.setOnClickListener(this);
         mAddressLabel.setOnClickListener(this);
 
         return view;
-//        return inflater.inflate(R.layout.fragment_pet_detail, container, false);
     }
 
     @Override
@@ -88,7 +84,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
             startActivity(phoneIntent);
         }
         if (view == mAddressLabel){
-            Intent addressIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + mPet.getAge()));
+            Intent addressIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + mPet.getOrganizationId()));
             startActivity(addressIntent);
         }
     }

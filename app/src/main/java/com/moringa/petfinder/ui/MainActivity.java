@@ -31,9 +31,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view){
         if (view == mFindPetsButton) {
-            String location = mLocationEditText.getText().toString();
+            String type = mLocationEditText.getText().toString();
             Intent intent = new Intent(MainActivity.this, PetListActivity.class);
-            intent.putExtra("location", location);
+            intent.putExtra("type", type);
             startActivity(intent);
         }
 

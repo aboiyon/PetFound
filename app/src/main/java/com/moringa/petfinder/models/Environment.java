@@ -6,7 +6,6 @@ import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
 
-//@Parcel
 @Generated("jsonschema2pojo")
 public class Environment {
 
@@ -29,9 +28,9 @@ public class Environment {
 
     /**
      * 
-//     * @param cats
-//     * @param children
-//     * @param dogs
+     * @param cats
+     * @param children
+     * @param dogs
      */
     public Environment(Object children, Object dogs, Object cats) {
         super();

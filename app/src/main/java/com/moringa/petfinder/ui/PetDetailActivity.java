@@ -30,7 +30,7 @@ public class PetDetailActivity extends AppCompatActivity {
         mPets = Parcels.unwrap(getIntent().getParcelableExtra("pets"));
         int startingPosition = getIntent().getIntExtra("position",0);
 
-        adapterViewPager = new PetPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT, mPets);
+        adapterViewPager = new PetPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mPets);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }

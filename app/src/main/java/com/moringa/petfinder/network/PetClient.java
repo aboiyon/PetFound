@@ -3,6 +3,9 @@ package com.moringa.petfinder.network;
 import static com.moringa.petfinder.Constants.BASE_URL;
 import static com.moringa.petfinder.Constants.access_token;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.io.IOException;
 
 import okhttp3.Interceptor;
@@ -15,7 +18,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class PetClient {
     private static Retrofit retrofit = null;
 
-    public static interface1 getClient(){
+    public static PetApi getClient(){
         if (retrofit == null){
             OkHttpClient okHttpClient = new OkHttpClient.Builder()
                     .addInterceptor(new Interceptor() {
@@ -28,12 +31,15 @@ public class PetClient {
                         }
                     })
                     .build();
+            Gson gson = new GsonBuilder()
+                    .setLenient()
+                    .create();
             retrofit = new Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .client(okHttpClient)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
         }
-        return retrofit.create(interface1.class);
+        return retrofit.create(PetApi.class);
     }
 }

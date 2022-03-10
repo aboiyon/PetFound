@@ -6,10 +6,9 @@ import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Query;
 
-public interface interface1 {
+public interface PetApi {
     @GET("animals")
     Call<SearchResponse> getPets(
-            @Query("type") String type,
-            @Query("breed") String breed
+            @Query("type") String type
     );
 }

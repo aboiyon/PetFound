@@ -6,13 +6,12 @@ import com.google.gson.annotations.SerializedName;
 
 import javax.annotation.Generated;
 
-//@Parcel
 @Generated("jsonschema2pojo")
 public class Address {
 
     @SerializedName("address1")
     @Expose
-    private Object address1;
+    private String address1;
     @SerializedName("address2")
     @Expose
     private Object address2;
@@ -45,7 +44,7 @@ public class Address {
      * @param postcode
      * @param state
      */
-    public Address(Object address1, Object address2, String city, String state, String postcode, String country) {
+    public Address(String address1, Object address2, String city, String state, String postcode, String country) {
         super();
         this.address1 = address1;
         this.address2 = address2;
@@ -55,11 +54,11 @@ public class Address {
         this.country = country;
     }
 
-    public Object getAddress1() {
+    public String getAddress1() {
         return address1;
     }
 
-    public void setAddress1(Object address1) {
+    public void setAddress1(String address1) {
         this.address1 = address1;
     }
 
