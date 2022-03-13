@@ -29,9 +29,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @BindView(R.id.findPetsButton) Button mFindPetsButton;
     @BindView(R.id.locationEditText) EditText mLocationEditText;
     @BindView(R.id.appNameTextView) TextView mAppNameTextView;
+    @BindView(R.id.savedPetsButton) Button mSavedPetsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mSavedPetsButton.setOnClickListener(this);
         mSearchedPetReference = FirebaseDatabase
                 .getInstance()
                 .getReference()
@@ -68,8 +70,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             intent.putExtra("type", type);
             startActivity(intent);
         }
-
+        if (view == mSavedPetsButton) {
+            Intent intent = new Intent(MainActivity.this, SavedPetListActivity.class);
+            startActivity(intent);
+        }
     }
+
     public void savePetToFirebase(String location) {
         mSearchedPetReference.push().setValue(location);
     }
