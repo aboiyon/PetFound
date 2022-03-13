@@ -13,6 +13,9 @@
         android:theme="@style/Theme.PetFinder"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".ui.LoginActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.CreateAccountActivity"
             android:exported="false" />
         <activity android:name=".ui.PetDetailActivity" />
