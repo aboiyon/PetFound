@@ -25,9 +25,9 @@
             android:exported="false" />
         <activity android:name=".ui.PetDetailActivity" />
         <activity
-            android:name=".ui.MainActivity"
-            android:exported="true"
-            android:theme="@style/NoActionBarTheme">
+            android:name=".ui.MainActivity">
+<!--            android:exported="true">-->
+<!--            android:theme="@style/NoActionBarTheme">-->
         </activity>
         <activity android:name=".ui.PetListActivity">
             <meta-data
