@@ -89,9 +89,13 @@ dependencies {
     implementation 'org.parceler:parceler-api:1.1.12'
     annotationProcessor 'org.parceler:parceler:1.1.12'
     //firebase
-    implementation platform('com.google.firebase:firebase-bom:26.4.0')
+    implementation platform('com.google.firebase:firebase-bom:29.2.0')
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.google.firebase:firebase-database'
-
+    //firebase recycler
+    implementation 'com.google.firebase:firebase-database'
+    implementation 'com.firebaseui:firebase-ui-database'
+    //version of firebase android lib
+    implementation 'com.firebaseui:firebase-ui-database:7.1.1'
 }
 apply plugin: 'com.google.gms.google-services'
