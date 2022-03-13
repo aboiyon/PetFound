@@ -33,11 +33,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mSavedPetsButton.setOnClickListener(this);
+
         mSearchedPetReference = FirebaseDatabase
                 .getInstance()
                 .getReference()
                 .child(Constants.FIREBASE_CHILD_SEARCHED_PET);
+
 
         mSearchedPetReferenceListener = mSearchedPetReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
 
         mFindPetsButton.setOnClickListener(this);
+        mSavedPetsButton.setOnClickListener(this);
     }
 
     @Override
