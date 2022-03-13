@@ -11,4 +11,5 @@
     <string name="one_breed_type">One Breed Type</string>
     <string name="gender">Gender</string>
     <string name="pets">Pets:</string>
+    <string name="saved_pets" />
 </resources>
