@@ -2,9 +2,11 @@ package com.moringa.petfinder.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.moringa.petfinder.R;
 import com.moringa.petfinder.models.Animal;
 import com.moringa.petfinder.ui.PetDetailActivity;
+import com.squareup.picasso.Picasso;
 
 import org.parceler.Parcels;
 
@@ -49,6 +52,7 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
     }
 
     public class petViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+        @BindView(R.id.petImageView) ImageView mPetImageView;
         @BindView(R.id.petNameTextView) TextView mNameTextView;
         @BindView(R.id.genderTextView) TextView mGenderTextView;
         @BindView(R.id.ageTextView) TextView mAgeTextView;
@@ -66,6 +70,12 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
             mNameTextView.setText(pet.getName());
             mGenderTextView.setText(pet.getGender());
             mAgeTextView.setText(pet.getOrganizationId());
+
+            for(int i=0;i<pet.getPhotos().size();i++){
+                Log.d("Photo","photo sizes"+pet.getPhotos().get(i));
+                String photo = (String) pet.getPhotos().get(i);
+                Picasso.get().load( photo).into(mPetImageView);
+            }
         }
 
         @Override
