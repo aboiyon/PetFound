@@ -111,7 +111,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
                     .getInstance()
                     .getReference(Constants.FIREBASE_CHILD_PETS)
                     .child(uid);
-            //push id to be saved
+            //pushid to be saved
             DatabaseReference pushRef = petRef.push();
             String pushId = pushRef.getKey();
             mPet.setPushId(pushId);
