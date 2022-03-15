@@ -37,12 +37,15 @@ public class FirebasePetViewHolder extends RecyclerView.ViewHolder implements Vi
     public void bindPet(Animal pet) {
         ImageView petImageView = (ImageView) mView.findViewById(R.id.petImageView);
         TextView nameTextView = (TextView) mView.findViewById(R.id.petNameTextView);
-        TextView categoryTextView = (TextView) mView.findViewById(R.id.genderTextView);
-        //TextView ratingTextView = (TextView) mView.findViewById(R.id.);
+        TextView genderTextView = (TextView) mView.findViewById(R.id.genderTextView);
+        TextView ageTextView = (TextView) mView.findViewById(R.id.ageTextView);
 
        // Picasso.get().load(restaurant.getImageUrl()).into(restaurantImageView);
 
         nameTextView.setText(pet.getName());
+        genderTextView.setText(pet.getGender());
+        ageTextView.setText(pet.getOrganizationId());
+
         //categoryTextView.setText(pet.getCategories().get(0).getTitle());
         //ratingTextView.setText("Rating: " + restaurant.getRating() + "/5");
     }
