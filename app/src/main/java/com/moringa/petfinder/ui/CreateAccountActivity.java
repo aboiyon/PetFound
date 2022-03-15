@@ -27,6 +27,9 @@ import butterknife.ButterKnife;
 
 public class CreateAccountActivity extends AppCompatActivity implements View.OnClickListener{
     public static final String TAG = CreateAccountActivity.class.getSimpleName();
+    private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+
     @BindView(R.id.createUserButton) Button mCreateUserButton;
     @BindView(R.id.nameEditText) EditText mNameEditText;
     @BindView(R.id.emailEditText) EditText mEmailEditText;
@@ -36,8 +39,6 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     @BindView(R.id.firebaseProgressBar) ProgressBar mSignInProgressBar;
     @BindView(R.id.loadingTextView) TextView mLoadingSignUp;
 
-    private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
 
     private String mName;
 
@@ -57,9 +58,11 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
     private void createNewUser() {
         final String name = mNameEditText.getText().toString().trim();
         final String email = mEmailEditText.getText().toString().trim();
+        mName = mNameEditText.getText().toString().trim();
         String password = mPasswordEditText.getText().toString().trim();
         String confirmPassword = mConfirmPasswordEditText.getText().toString().trim();
 
+        boolean validmName = isValidName(mName);
         boolean validEmail = isValidEmail(email);
         boolean validName = isValidName(name);
         boolean validPassword = isValidPassword(password, confirmPassword);
@@ -157,20 +160,24 @@ public class CreateAccountActivity extends AppCompatActivity implements View.OnC
         mSignInProgressBar.setVisibility(View.GONE);
         mLoadingSignUp.setVisibility(View.GONE);
     }
-    private void createFirebaseUserProfile(final FirebaseUser user){
+
+    private void createFirebaseUserProfile(final FirebaseUser user) {
+
         UserProfileChangeRequest addProfileName = new UserProfileChangeRequest.Builder()
                 .setDisplayName(mName)
                 .build();
 
         user.updateProfile(addProfileName)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
+
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Log.d(TAG, Objects.requireNonNull(user.getDisplayName()));
                             Toast.makeText(CreateAccountActivity.this, "The display name has ben set", Toast.LENGTH_LONG).show();
                         }
                     }
+
                 });
     }
 }
