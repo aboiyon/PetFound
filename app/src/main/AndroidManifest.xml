@@ -24,6 +24,7 @@
             android:name=".ui.CreateAccountActivity"
             android:exported="false" />
         <activity android:name=".ui.PetDetailActivity" />
+        <activity android:name=".ui.SavedPetListActivity" />
         <activity
             android:name=".ui.MainActivity">
 <!--            android:exported="true">-->
