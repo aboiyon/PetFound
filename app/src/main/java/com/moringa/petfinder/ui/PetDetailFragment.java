@@ -12,6 +12,8 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringa.petfinder.Constants;
@@ -100,5 +102,24 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
             restaurantRef.push().setValue(mPet);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
+        //current authenticated user UID
+        if (view == mSavePetButton) {
+            FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+            String uid = user.getUid();
+
+            DatabaseReference petRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference(Constants.FIREBASE_CHILD_PETS)
+                    .child(uid);
+            //push id to be saved
+            DatabaseReference pushRef = petRef.push();
+            String pushId = pushRef.getKey();
+            mPet.setPushId(pushId);
+            pushRef.setValue(mPet);
+
+            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+        }
+
     }
 }
+
