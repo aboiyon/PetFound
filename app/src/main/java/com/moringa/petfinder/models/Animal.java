@@ -1,10 +1,12 @@
 
 package com.moringa.petfinder.models;
 
-import java.util.List;
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.List;
+
+import javax.annotation.Generated;
 
 @Generated("jsonschema2pojo")
 public class Animal {
@@ -87,6 +89,9 @@ public class Animal {
     @SerializedName("_links")
     @Expose
     private Links links;
+    //pinpoint exact object to delete
+    private String pushId;
+
 
     /**
      * No args constructor for use in serialization
@@ -360,6 +365,14 @@ public class Animal {
 
     public void setLinks(Links links) {
         this.links = links;
+    }
+//retrieve or assign relevant id to an object
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
     }
 
 }
