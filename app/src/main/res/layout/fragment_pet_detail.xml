@@ -15,7 +15,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:id="@+id/petImageView"
-            android:src="@drawable/mypet"
+            android:src="@drawable/siberianhusky"
             android:scaleType="centerCrop" />
 
         <RelativeLayout

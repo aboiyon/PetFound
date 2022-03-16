@@ -8,7 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.moringa.petfinder.R;
@@ -45,7 +45,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onCreate(@NonNull Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assert getArguments()!= null;
         mPet = Parcels.unwrap(getArguments().getParcelable("pet"));
