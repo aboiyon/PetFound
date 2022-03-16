@@ -98,7 +98,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
         if (view == mSavePetButton) {
             DatabaseReference restaurantRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_PETS);
+                    .getReference(Constants.FIREBASE_CHILD_SEARCHED_PET);
             restaurantRef.push().setValue(mPet);
             Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
         }
@@ -109,7 +109,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
 
             DatabaseReference petRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_PETS)
+                    .getReference(Constants.FIREBASE_CHILD_SEARCHED_PET)
                     .child(uid);
             //pushid to be saved
             DatabaseReference pushRef = petRef.push();
