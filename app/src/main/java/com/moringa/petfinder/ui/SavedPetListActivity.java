@@ -47,10 +47,10 @@ public class SavedPetListActivity extends AppCompatActivity {
 
         mPetReference = FirebaseDatabase
                 .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_PETS)
+                .getReference(Constants.FIREBASE_CHILD_SEARCHED_PET)
                 .child(uid);
 
-        mPetReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PETS);
+        mPetReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SEARCHED_PET);
         setUpFirebaseAdapter();
         hideProgressBar();
         showRestaurants();
