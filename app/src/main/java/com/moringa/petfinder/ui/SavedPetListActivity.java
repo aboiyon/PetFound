@@ -37,7 +37,6 @@ public class SavedPetListActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //layout view
         setContentView(R.layout.activity_pets);
         ButterKnife.bind(this);
 
@@ -45,12 +44,7 @@ public class SavedPetListActivity extends AppCompatActivity {
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
 
-        mPetReference = FirebaseDatabase
-                .getInstance()
-                .getReference(Constants.FIREBASE_CHILD_SEARCHED_PET)
-                .child(uid);
-
-        mPetReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SEARCHED_PET);
+        mPetReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PETS).child(uid);
         setUpFirebaseAdapter();
         hideProgressBar();
         showRestaurants();

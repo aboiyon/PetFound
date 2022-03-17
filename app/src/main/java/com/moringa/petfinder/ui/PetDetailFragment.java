@@ -95,13 +95,13 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
             Intent addressIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("geo:" + mPet.getOrganizationId()));
             startActivity(addressIntent);
         }
-        if (view == mSavePetButton) {
-            DatabaseReference restaurantRef = FirebaseDatabase
-                    .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_SEARCHED_PET);
-            restaurantRef.push().setValue(mPet);
-            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
-        }
+//        if (view == mSavePetButton) {
+//            DatabaseReference petRef = FirebaseDatabase
+//                    .getInstance()
+//                    .getReference(Constants.FIREBASE_CHILD_PETS);
+//            petRef.push().setValue(mPet);
+//            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+//        }
         //current authenticated user UID
         if (view == mSavePetButton) {
             FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
@@ -109,7 +109,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
 
             DatabaseReference petRef = FirebaseDatabase
                     .getInstance()
-                    .getReference(Constants.FIREBASE_CHILD_SEARCHED_PET)
+                    .getReference(Constants.FIREBASE_CHILD_PETS)
                     .child(uid);
             //pushid to be saved
             DatabaseReference pushRef = petRef.push();

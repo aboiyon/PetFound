@@ -89,7 +89,7 @@ public class Animal {
     @SerializedName("_links")
     @Expose
     private Links links;
-    //pinpoint exact object to delete
+    //pinpoint exact object to add/delete
     private String pushId;
 
 

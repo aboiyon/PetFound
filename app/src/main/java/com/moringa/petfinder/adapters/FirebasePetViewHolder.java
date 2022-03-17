@@ -55,7 +55,7 @@ public class FirebasePetViewHolder extends RecyclerView.ViewHolder implements Vi
         final ArrayList<Animal>pets = new ArrayList<>();
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
-        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_SEARCHED_PET).child(uid);
+        DatabaseReference ref = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PETS).child(uid);
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
