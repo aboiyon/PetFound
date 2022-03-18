@@ -51,7 +51,7 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
     public class petViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         @BindView(R.id.petNameTextView) TextView mNameTextView;
         @BindView(R.id.genderTextView) TextView mGenderTextView;
-        @BindView(R.id.ageTextView) TextView mAgeTextView;
+//        @BindView(R.id.ageTextView) TextView mAgeTextView;
 
         private Context mContext;
 
@@ -65,7 +65,7 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
         public void bindPet(Animal pet) {
             mNameTextView.setText(pet.getName());
             mGenderTextView.setText(pet.getGender());
-            mAgeTextView.setText(pet.getOrganizationId());
+//            mAgeTextView.setText(pet.getOrganizationId());
         }
 
         @Override

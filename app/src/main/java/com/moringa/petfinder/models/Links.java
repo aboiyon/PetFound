@@ -1,11 +1,12 @@
 
 package com.moringa.petfinder.models;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("jsonschema2pojo")
+import org.parceler.Parcel;
+
+@Parcel
 public class Links {
 
     @SerializedName("self")

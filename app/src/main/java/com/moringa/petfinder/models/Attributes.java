@@ -4,9 +4,9 @@ package com.moringa.petfinder.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import javax.annotation.Generated;
+import org.parceler.Parcel;
 
-@Generated("jsonschema2pojo")
+@Parcel
 public class Attributes {
 
     @SerializedName("spayed_neutered")
@@ -15,9 +15,9 @@ public class Attributes {
     @SerializedName("house_trained")
     @Expose
     private Boolean houseTrained;
-    @SerializedName("declawed")
-    @Expose
-    private Object declawed;
+//    @SerializedName("declawed")
+//    @Expose
+//    private Object declawed;
     @SerializedName("special_needs")
     @Expose
     private Boolean specialNeeds;
@@ -44,7 +44,7 @@ public class Attributes {
         super();
         this.spayedNeutered = spayedNeutered;
         this.houseTrained = houseTrained;
-        this.declawed = declawed;
+//        this.declawed = declawed;
         this.specialNeeds = specialNeeds;
         this.shotsCurrent = shotsCurrent;
     }
@@ -65,13 +65,13 @@ public class Attributes {
         this.houseTrained = houseTrained;
     }
 
-    public Object getDeclawed() {
-        return declawed;
-    }
+//    public Object getDeclawed() {
+//        return declawed;
+//    }
 
-    public void setDeclawed(Object declawed) {
-        this.declawed = declawed;
-    }
+//    public void setDeclawed(Object declawed) {
+//        this.declawed = declawed;
+//    }
 
     public Boolean getSpecialNeeds() {
         return specialNeeds;

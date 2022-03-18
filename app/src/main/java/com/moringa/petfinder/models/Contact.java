@@ -1,12 +1,14 @@
 
 package com.moringa.petfinder.models;
 
+import android.location.Address;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import javax.annotation.Generated;
+import org.parceler.Parcel;
 
-@Generated("jsonschema2pojo")
+@Parcel
 public class Contact {
 
     @SerializedName("email")

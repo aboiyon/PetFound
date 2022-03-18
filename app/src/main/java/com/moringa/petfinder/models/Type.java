@@ -4,9 +4,9 @@ package com.moringa.petfinder.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-import javax.annotation.Generated;
+import org.parceler.Parcel;
 
-@Generated("jsonschema2pojo")
+@Parcel
 public class Type {
 
     @SerializedName("href")
