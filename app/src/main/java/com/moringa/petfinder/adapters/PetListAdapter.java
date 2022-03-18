@@ -31,7 +31,7 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
 
     @Override
     public PetListAdapter.petViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.fragment_pet_detail, parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pet_list_item, parent,false);
 
         petViewHolder viewHolder = new petViewHolder(view);
 

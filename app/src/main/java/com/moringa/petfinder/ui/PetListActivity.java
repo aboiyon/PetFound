@@ -103,7 +103,7 @@ public class PetListActivity extends AppCompatActivity {
         mErrorTextView.setVisibility(View.VISIBLE);
     }
 
-    private void showRestaurants() {
+    private void showPets() {
         mRecyclerView.setVisibility(View.VISIBLE);
     }
 
@@ -132,7 +132,7 @@ public class PetListActivity extends AppCompatActivity {
                     mRecyclerView.setLayoutManager(layoutManager);
                     mRecyclerView.setHasFixedSize(true);
 
-                    showRestaurants();
+                    showPets();
                 } else {
                     showUnsuccessfulMessage();
                 }
