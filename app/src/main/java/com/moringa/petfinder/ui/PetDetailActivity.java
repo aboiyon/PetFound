@@ -35,3 +35,5 @@ public class PetDetailActivity extends AppCompatActivity {
         mViewPager.setCurrentItem(startingPosition);
     }
 }
+
+

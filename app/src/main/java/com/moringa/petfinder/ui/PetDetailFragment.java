@@ -28,7 +28,7 @@ import butterknife.ButterKnife;
 public class PetDetailFragment extends Fragment implements View.OnClickListener{
     @BindView(R.id.petNameTextView) TextView mNameLabel;
     @BindView(R.id.genderTextView) TextView mGenderLabel;
-    @BindView(R.id.ageTextView) TextView mAgeLabel;
+//    @BindView(R.id.ageTextView) TextView mAgeLabel;
 
     @BindView(R.id.websiteTextView) TextView mWebsiteLabel;
     @BindView(R.id.phoneTextView) TextView mPhoneLabel;
@@ -66,7 +66,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
 
         mNameLabel.setText(mPet.getName());
         mGenderLabel.setText(mPet.getGender());
-        mAgeLabel.setText(mPet.getAge());
+//        mAgeLabel.setText(mPet.getAge());
 
         mWebsiteLabel.setText(mPet.getUrl());
         mPhoneLabel.setText(mPet.getContact().toString());
