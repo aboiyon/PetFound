@@ -9,7 +9,7 @@ import retrofit2.http.Query;
 public interface PetApi {
 //    @Headers({"Accept:application/vnd.\"Bearer bKYfebFDtZTVNWAbv7BMsmQYIgRAlYW717TqhFQWW4ZgEW3gQe\".v1.full+json",
 //    "User-Agent:PetFinder"})
-    @GET("Animals")
+    @GET("animals")
     Call<SearchResponse> getPets(
             @Query("type") String type
     );

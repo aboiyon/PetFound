@@ -1,15 +1,7 @@
 <resources>
-    <string name="app_name">PetFinder</string>
     <string name="my_pets">My Pets</string>
-    <string name="find_pets">Find Pets</string>
-    <string name="search_pets">Search pets</string>
     <string name="dog">dog</string>
     <string name="pet_search">Pet Search</string>
-    <string name="pets_around_the_world">Pets around the world</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="one_breed_type">One Breed Type</string>
-    <string name="gender">Gender</string>
     <string name="pets">Pets:</string>
-    <string name="saved_pets" />
 </resources>
