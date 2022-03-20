@@ -2,6 +2,7 @@ package com.moringa.petfinder.adapters;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -30,8 +31,17 @@ public class FirebasePetListAdapter extends FirebaseRecyclerAdapter<Animal, Fire
         mContext = context;
     }
     @Override
-    protected void onBindViewHolder(@NonNull FirebasePetViewHolder firebaseRestaurantViewHolder, int position, @NonNull Animal pet) {
-        firebaseRestaurantViewHolder.bindPet(pet);
+    protected void onBindViewHolder(@NonNull final FirebasePetViewHolder firebasePetViewHolder, int position, @NonNull Animal pet) {
+        firebasePetViewHolder.bindPet(pet);
+        firebasePetViewHolder.mPetImageView.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getActionMasked() == MotionEvent.ACTION_DOWN){
+                    mOnStartDragListener.onStartDrag(firebasePetViewHolder);
+                }
+                return false;
+            }
+        });
     }
 
     @NonNull
