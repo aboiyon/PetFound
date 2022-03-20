@@ -1,18 +1,15 @@
 package com.moringa.petfinder.ui;
 
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -20,15 +17,19 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.moringa.petfinder.Constants;
 import com.moringa.petfinder.R;
-import com.moringa.petfinder.adapters.FirebasePetViewHolder;
+import com.moringa.petfinder.adapters.FirebasePetListAdapter;
 import com.moringa.petfinder.models.Animal;
+import com.moringa.petfinder.util.OnStartDragListener;
+import com.moringa.petfinder.util.SimpleItemTouchHelperCallback;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class SavedPetListActivity extends AppCompatActivity {
+public class SavedPetListActivity extends AppCompatActivity implements OnStartDragListener {
     private DatabaseReference mPetReference;
-    private FirebaseRecyclerAdapter<Animal, FirebasePetViewHolder> mFirebaseAdapter;
+//    private FirebaseRecyclerAdapter<Animal, FirebasePetViewHolder> mFirebaseAdapter;
+    private FirebasePetListAdapter mFirebaseAdapter;
+    private ItemTouchHelper mItemTouchHelper;
 
     @BindView(R.id.recyclerView) RecyclerView mRecyclerView;
     @BindView(R.id.errorTextView) TextView mErrorTextView;
@@ -41,39 +42,57 @@ public class SavedPetListActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
         //display saved pet list
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        String uid = user.getUid();
-
-        mPetReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PETS).child(uid);
+//        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//        String uid = user.getUid();
+//
+//        mPetReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PETS).child(uid);
         setUpFirebaseAdapter();
         hideProgressBar();
-        showRestaurants();
+        showPets();
 
     }
-
     private void setUpFirebaseAdapter(){
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        String uid = user.getUid();
+        mPetReference = FirebaseDatabase.getInstance().getReference(Constants.FIREBASE_CHILD_PETS).child(uid);
         FirebaseRecyclerOptions<Animal> options =
                 new FirebaseRecyclerOptions.Builder<Animal>()
                         .setQuery(mPetReference, Animal.class)
                         .build();
 
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Animal, FirebasePetViewHolder>(options) {
-            @Override
-            protected void onBindViewHolder(@NonNull FirebasePetViewHolder firebaseRestaurantViewHolder, int position, @NonNull Animal pet) {
-                firebaseRestaurantViewHolder.bindPet(pet);
-            }
-
-            @NonNull
-            @Override
-            public FirebasePetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pet_list_item_drag, parent, false);
-                return new FirebasePetViewHolder(view);
-            }
-        };
+        mFirebaseAdapter = new FirebasePetListAdapter(options, mPetReference, (OnStartDragListener) this, this);
 
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         mRecyclerView.setAdapter(mFirebaseAdapter);
+        mRecyclerView.setHasFixedSize(true);
+        ItemTouchHelper.Callback callback = new SimpleItemTouchHelperCallback(mFirebaseAdapter);
+        mItemTouchHelper = new ItemTouchHelper(callback);
+        mItemTouchHelper.attachToRecyclerView(mRecyclerView);
     }
+
+//    private void setUpFirebaseAdapter(){
+//        FirebaseRecyclerOptions<Animal> options =
+//                new FirebaseRecyclerOptions.Builder<Animal>()
+//                        .setQuery(mPetReference, Animal.class)
+//                        .build();
+//
+//        mFirebaseAdapter = new FirebaseRecyclerAdapter<Animal, FirebasePetViewHolder>(options) {
+//            @Override
+//            protected void onBindViewHolder(@NonNull FirebasePetViewHolder firebaseRestaurantViewHolder, int position, @NonNull Animal pet) {
+//                firebaseRestaurantViewHolder.bindPet(pet);
+//            }
+//
+//            @NonNull
+//            @Override
+//            public FirebasePetViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.pet_list_item_drag, parent, false);
+//                return new FirebasePetViewHolder(view);
+//            }
+//        };
+//
+//        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+//        mRecyclerView.setAdapter(mFirebaseAdapter);
+//    }
 
     @Override
     protected void onStart() {
@@ -88,8 +107,11 @@ public class SavedPetListActivity extends AppCompatActivity {
             mFirebaseAdapter.stopListening();
         }
     }
+    public void onStartDrag(RecyclerView.ViewHolder viewHolder){
+        mItemTouchHelper.startDrag(viewHolder);
+    }
 
-    private void showRestaurants() {
+    private void showPets() {
         mRecyclerView.setVisibility(View.VISIBLE);
     }
 
