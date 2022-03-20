@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -51,7 +51,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
     }
 
     @Override
-    public void onCreate(@NonNull Bundle savedInstanceState) {
+    public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         assert getArguments()!= null;
         mPet = Parcels.unwrap(getArguments().getParcelable("pet"));
@@ -68,7 +68,7 @@ public class PetDetailFragment extends Fragment implements View.OnClickListener{
         mGenderLabel.setText(mPet.getGender());
 //        mAgeLabel.setText(mPet.getAge());
 
-        mWebsiteLabel.setText(mPet.getUrl());
+//        mWebsiteLabel.setText(mPet.getUrl());
         mPhoneLabel.setText(mPet.getContact().toString());
         mAddressLabel.setText(mPet.getOrganizationId());
 

@@ -38,16 +38,16 @@
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Age"
-                android:id="@+id/ageTextView"
-                android:layout_alignTop="@+id/petNameTextView"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true"
-                android:textColor="@color/white"
-                android:textStyle="bold" />
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="Age"-->
+<!--                android:id="@+id/ageTextView"-->
+<!--                android:layout_alignTop="@+id/petNameTextView"-->
+<!--                android:layout_alignParentRight="true"-->
+<!--                android:layout_alignParentEnd="true"-->
+<!--                android:textColor="@color/white"-->
+<!--                android:textStyle="bold" />-->
 
             <TextView
                 android:layout_width="wrap_content"

@@ -20,15 +20,6 @@ public class Next {
     public Next() {
     }
 
-    /**
-     * 
-     * @param href
-     */
-    public Next(String href) {
-        super();
-        this.href = href;
-    }
-
     public String getHref() {
         return href;
     }

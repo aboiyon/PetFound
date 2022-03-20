@@ -3,6 +3,8 @@ package com.moringa.petfinder.models;
 
 import android.os.Environment;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -40,9 +42,9 @@ public class Animal {
     @SerializedName("gender")
     @Expose
     private String gender;
-    @SerializedName("size")
-    @Expose
-    private String size;
+//    @SerializedName("size")
+//    @Expose
+//    private String size;
 //    @SerializedName("coat")
 //    @Expose
 //    private Object coat;
@@ -61,9 +63,9 @@ public class Animal {
     @SerializedName("description")
     @Expose
     private String description;
-    @SerializedName("organization_animal_id")
-    @Expose
-    private String organizationAnimalId;
+//    @SerializedName("organization_animal_id")
+//    @Expose
+//    private String organizationAnimalId;
 //    @SerializedName("photos")
 //    @Expose
 //    private List<Object> photos = null;
@@ -131,7 +133,7 @@ public class Animal {
      * @param age
      * @param status
      */
-    public Animal(Integer id, String organizationId, String url, String type, String species, Breeds breeds, String age, String gender, String size, Object coat, Attributes attributes, Environment environment, List<Object> tags, String name, String description, String organizationAnimalId, List<Object> photos, Object primaryPhotoCropped, List<Object> videos, String status, String statusChangedAt, String publishedAt, Object distance, Contact contact, Links links) {
+    public Animal(@NonNull Integer id, String organizationId, String url, String type, String species, Breeds breeds, String age, String gender, String size, Object coat, Attributes attributes, Environment environment, List<Object> tags, String name, String description, String organizationAnimalId, List<Object> photos, Object primaryPhotoCropped, List<Object> videos, String status, String statusChangedAt, String publishedAt, Object distance, Contact contact, Links links) {
         super();
         this.id = id;
         this.organizationId = organizationId;
@@ -142,14 +144,14 @@ public class Animal {
 //        this.colors = colors;
         this.age = age;
         this.gender = gender;
-        this.size = size;
+//        this.size = size;
 //        this.coat = coat;
         this.attributes = attributes;
 //        this.environment = environment;
 //        this.tags = tags;
         this.name = name;
         this.description = description;
-        this.organizationAnimalId = organizationAnimalId;
+//        this.organizationAnimalId = organizationAnimalId;
 //        this.photos = photos;
 //        this.primaryPhotoCropped = primaryPhotoCropped;
 //        this.videos = videos;
@@ -233,13 +235,13 @@ public class Animal {
         this.gender = gender;
     }
 
-    public String getSize() {
-        return size;
-    }
-
-    public void setSize(String size) {
-        this.size = size;
-    }
+//    public String getSize() {
+//        return size;
+//    }
+//
+//    public void setSize(String size) {
+//        this.size = size;
+//    }
 
 //    public Object getCoat() {
 //        return coat;
@@ -289,13 +291,13 @@ public class Animal {
         this.description = description;
     }
 
-    public String getOrganizationAnimalId() {
-        return organizationAnimalId;
-    }
-
-    public void setOrganizationAnimalId(String organizationAnimalId) {
-        this.organizationAnimalId = organizationAnimalId;
-    }
+//    public String getOrganizationAnimalId() {
+//        return organizationAnimalId;
+//    }
+//
+//    public void setOrganizationAnimalId(String organizationAnimalId) {
+//        this.organizationAnimalId = organizationAnimalId;
+//    }
 
 //    public List<Object> getPhotos() {
 //        return photos;

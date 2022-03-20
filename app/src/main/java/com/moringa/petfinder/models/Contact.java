@@ -3,6 +3,8 @@ package com.moringa.petfinder.models;
 
 import android.location.Address;
 
+import androidx.annotation.NonNull;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
@@ -34,7 +36,7 @@ public class Contact {
      * @param phone
      * @param email
      */
-    public Contact(String email, String phone, Address address) {
+    public Contact(@NonNull String email, String phone, Address address) {
         super();
         this.email = email;
         this.phone = phone;
@@ -49,13 +51,13 @@ public class Contact {
         this.email = email;
     }
 
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
+//    public String getPhone() {
+//        return phone;
+//    }
+//
+//    public void setPhone(String phone) {
+//        this.phone = phone;
+//    }
 
     public Address getAddress() {
         return address;
