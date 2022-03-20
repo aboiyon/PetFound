@@ -3,8 +3,10 @@ package com.moringa.petfinder.adapters;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -26,6 +28,7 @@ import java.util.ArrayList;
 public class FirebasePetViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
     View mView;
     Context mContext;
+    public ImageView mPetImageView;
 
     public FirebasePetViewHolder(View itemView) {
         super(itemView);
@@ -34,9 +37,9 @@ public class FirebasePetViewHolder extends RecyclerView.ViewHolder implements Vi
         itemView.setOnClickListener(this);
     }
     public void bindPet(Animal pet) {
-//        ImageView petImageView = (ImageView) mView.findViewById(R.id.petImageView);
-        TextView nameTextView = (TextView) mView.findViewById(R.id.petNameTextView);
-        TextView genderTextView = (TextView) mView.findViewById(R.id.genderTextView);
+        mPetImageView  =  mView.findViewById(R.id.petImageView);
+        TextView nameTextView = mView.findViewById(R.id.petNameTextView);
+        TextView genderTextView = mView.findViewById(R.id.genderTextView);
 //        TextView ageTextView = (TextView) mView.findViewById(R.id.ageTextView);
 
        // Picasso.get().load(restaurant.getImageUrl()).into(restaurantImageView);
@@ -58,7 +61,7 @@ public class FirebasePetViewHolder extends RecyclerView.ViewHolder implements Vi
         ref.addListenerForSingleValueEvent(new ValueEventListener() {
 
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     pets.add(snapshot.getValue(Animal.class));
                 }
@@ -73,7 +76,7 @@ public class FirebasePetViewHolder extends RecyclerView.ViewHolder implements Vi
             }
 
             @Override
-            public void onCancelled(DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
             }
         });
     }
