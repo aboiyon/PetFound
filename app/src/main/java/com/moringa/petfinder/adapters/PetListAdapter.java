@@ -62,9 +62,9 @@ public class PetListAdapter  extends RecyclerView.Adapter<PetListAdapter.petView
             itemView.setOnClickListener(this);
         }
 
-        public void bindPet(Animal pets) {
-            mNameTextView.setText(pets.getName());
-            mGenderTextView.setText(pets.getGender());
+        public void bindPet(Animal pet) {
+            mNameTextView.setText(pet.getName());
+            mGenderTextView.setText(pet.getGender());
 //            mAgeTextView.setText(pet.getOrganizationId());
         }
 

@@ -3,7 +3,7 @@ package com.moringa.petfinder.ui;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 import androidx.viewpager.widget.ViewPager;
 
 import com.moringa.petfinder.R;
@@ -27,10 +27,10 @@ public class PetDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pet_detail);
         ButterKnife.bind(this);
 
-        mPets = Parcels.unwrap(getIntent().getParcelableExtra("mPets"));
+        mPets = Parcels.unwrap(getIntent().getParcelableExtra("pets"));
         int startingPosition = getIntent().getIntExtra("position",0);
 
-        adapterViewPager = new PetPagerAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mPets);
+        adapterViewPager = new PetPagerAdapter(getSupportFragmentManager(), FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT,mPets);
         mViewPager.setAdapter(adapterViewPager);
         mViewPager.setCurrentItem(startingPosition);
     }

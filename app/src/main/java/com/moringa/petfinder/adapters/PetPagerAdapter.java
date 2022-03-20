@@ -3,17 +3,17 @@ package com.moringa.petfinder.adapters;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.moringa.petfinder.models.Animal;
 import com.moringa.petfinder.ui.PetDetailFragment;
 
 import java.util.List;
 
-public class PetPagerAdapter extends FragmentPagerAdapter {
+public class PetPagerAdapter extends FragmentStatePagerAdapter {
     private List<Animal> mPets;
-    public PetPagerAdapter(@NonNull FragmentManager fragmentManager, int behavior, List<Animal> pets){
-        super(fragmentManager, behavior);
+    public PetPagerAdapter(@NonNull FragmentManager fm, int behavior, List<Animal> pets){
+        super(fm, behavior);
         mPets = pets;
     }
     @Override

@@ -34,13 +34,13 @@
             android:id="@+id/genderTextView"
             android:textStyle="italic"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Organization"
-            android:id="@+id/ratingTextView"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:textColor="@color/black"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="Organization"-->
+<!--            android:id="@+id/ratingTextView"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_alignParentRight="true"-->
+<!--            android:textColor="@color/black"/>-->
     </LinearLayout>
 </LinearLayout>
